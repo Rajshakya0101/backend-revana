@@ -44,7 +44,14 @@ def get_html_with_playwright(url: str) -> str:
             headless=True,
             locale="en-IN",
             viewport={"width": 1366, "height": 768},
+            args=[
+                "--no-sandbox",
+                "--disable-gpu",
+                "--disable-dev-shm-usage",
+                "--disable-setuid-sandbox",
+            ]
         )
+
         try:
             page = context.new_page()
             # Extra headers for the page
