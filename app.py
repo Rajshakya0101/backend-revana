@@ -321,6 +321,10 @@ def scrape_reviews():
         log.exception("Unhandled server error")
         return jsonify({"ok": False, "error": str(e)}), 500
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"ok": True, "msg": "Flipkart scraper is running"})
+
 
 def _find_first_review_page_url(soup: BeautifulSoup) -> str | None:
     """

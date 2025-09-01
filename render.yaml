@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: flipkart-scraper
+    env: docker
+    plan: free
+    region: oregon
+    envVars:
+      - key: HEADLESS
+        value: "1"
+      - key: MAX_REVIEW_PAGES
+        value: "5"
